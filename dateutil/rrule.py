@@ -1548,6 +1548,8 @@ class _rrulestr(object):
             name, value = pair.split('=')
             name = name.upper()
             value = value.upper()
+            if name.startswith("X-"):
+                continue
             try:
                 getattr(self, "_handle_"+name)(rrkwargs, name, value,
                                                ignoretz=ignoretz,
